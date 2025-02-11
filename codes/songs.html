@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeTouch Songs</title>
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #e0f7ff, #a2d9ff);
+            color: #003366;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #004080;
+            color: white;
+            position: relative;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 8px 12px;
+            font-size: 16px;
+            color: #004080;
+            text-decoration: none;
+        }
+
+        .dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            filter: invert(1);
+        }
+
+        .profile-text {
+            font-size: 18px;
+        }
+
+        /* Main Body */
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 20px auto;
+        }
+
+        .section {
+            width: 60%;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .section video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: opacity 0.3s;
+        }
+
+        .tagline {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #00264d;
+            color: white;
+        }
+
+        footer a {
+            color: #cce7ff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        footer img {
+            width: 24px;
+            height: 24px;
+            margin: 0 5px;
+        }
+    </style>
+    <script>
+        // Toggle dropdown menu on click
+        function toggleDropdown() {
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Close dropdown when clicking outside
+        window.onclick = function (event) {
+            const dropdown = document.querySelector('.dropdown');
+            if (!event.target.matches('.menu-icon') && dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            }
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleDropdown()">
+            ☰
+            <div class="dropdown">
+                <a href="home.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">About Us</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="feedback.html">Feedback</a>
+            </div>
+        </div>
+        <div class="logo">SafeTouch</div>
+        <div class="profile">
+            <span class="profile-text">Profile</span>
+            <img src="profile.png" alt="Profile" onclick="window.location.href='profile.html'">
+        </div>
+    </header>
+
+    <main>
+        <div class="section">
+            <p class="tagline">Song 1</p>
+            <video controls>
+                <source src="song1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="section">
+            <p class="tagline">Song 2</p>
+            <video controls>
+                <source src="song2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="section">
+            <p class="tagline">Song 3</p>
+            <video controls>
+                <source src="song3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="section">
+            <p class="tagline">Song 4</p>
+            <video controls>
+                <source src="song4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="section">
+            <p class="tagline">Song 5</p>
+            <video controls>
+                <source src="song5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </main>
+
+    <footer>
+        <a href="contact.html">Contact Us</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="https://www.instagram.com/_safe.touch_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+            <img src="instagram.png" alt="Instagram">
+        </a>
+        <a href="https://twitter.com" target="_blank">
+            <img src="twitter.png" alt="Twitter">
+        </a>
+        <p>&copy; 2024 SafeTouch. All rights reserved.</p>
+    </footer>
+</body>
+</html>

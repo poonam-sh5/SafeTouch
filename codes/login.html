@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SafeTouch</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #e0f7ff, #a2d9ff);
+            color: #003366;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #004080;
+            color: white;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-family: 'Georgia', serif;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #cce7ff;
+        }
+
+        header .home-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        header .home-link img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
+            filter: invert(100%);
+        }
+
+        header .home-link span {
+            font-size: 14px;
+            color: white;
+        }
+
+        .login-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .login-box h2 {
+            margin: 0 0 20px;
+            font-size: 24px;
+            color: #004080;
+        }
+
+        .login-box input[type="email"],
+        .login-box input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .login-box button {
+            background-color: #004080;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        .login-box button:hover {
+            background-color: #0059b3;
+        }
+
+        .forgot-password {
+            font-size: 14px;
+            color: #0073e6;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .google-login-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #4285F4;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 15px 0;
+            width: 100%;
+        }
+
+        .google-login-button img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .signup-text {
+            font-size: 14px;
+            color: #004080;
+        }
+
+        .signup-text a {
+            color: #0073e6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-text a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #00264d;
+            color: white;
+            width: 100%;
+        }
+
+        footer a {
+            color: #cce7ff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 12px;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        footer img {
+            width: 18px;
+            height: 18px;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+    </style>
+    <script>
+        function validateLogin() {
+            const email = document.querySelector('input[type="email"]').value;
+            const password = document.querySelector('input[type="password"]').value;
+
+            // Check if email and password are entered
+            if (!email || !password) {
+                alert('Please enter complete information.');
+                return false;
+            }
+
+            // Simulate successful login (in a real system, you'd check credentials here)
+            alert('Login successful! Redirecting to dashboard...');
+            window.location.href = 'dashboard.html'; // Redirect to dashboard page after successful login
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="home-link" onclick="window.location.href='home.html';">
+            <img src="home.png" alt="Home">
+            <span>Home</span>
+        </div>
+        <h1>SafeTouch</h1>
+        <nav>
+            <a href="signup.html">Signup</a>
+        </nav>
+    </header>
+
+    <div class="login-box">
+        <h2>Login to SafeTouch</h2>
+        <form onsubmit="return validateLogin()">
+            <input type="email" placeholder="Enter your email" required>
+            <input type="password" placeholder="Enter your password" required>
+            <a href="change-password.html" class="forgot-password">Forgot password?</a>
+            <button type="submit">Login</button>
+        </form>
+
+        <button class="google-login-button">
+            <img src="google.png" alt="Google Logo">
+            <span>Login with Google</span>
+        </button>
+
+        <p class="signup-text">Don't have an account? <a href="signup.html">Signup</a></p>
+    </div>
+
+    <footer>
+        <div>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms&Conditions</a>
+            <a href="https://www.instagram.com/_safe.touch_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                <img src="instagram.png" alt="Instagram Logo">
+            </a>
+            <a href="https://twitter.com" target="_blank">
+                <img src="twitter.png" alt="Twitter">
+            </a>
+        </div>
+        <p>&copy; 2024 SafeTouch. All rights reserved.</p>
+    </footer>
+</body>
+</html>

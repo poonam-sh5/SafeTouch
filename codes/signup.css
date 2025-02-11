@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #e0f7ff, #a2d9ff);
+    color: #003366;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #004080;
+    color: white;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-family: 'Georgia', serif;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #cce7ff;
+}
+
+header .home-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+header .home-link img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    filter: invert(100%);
+}
+
+header .home-link span {
+    font-size: 14px;
+    color: white;
+}
+
+.signup-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.signup-box h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    color: #004080;
+}
+
+.signup-box input[type="email"],
+.signup-box input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.signup-box button {
+    background-color: #004080;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.signup-box button:hover {
+    background-color: #0059b3;
+}
+
+.google-signup-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #4285F4;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 15px 0;
+    width: 100%;
+}
+
+.google-signup-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.login-text {
+    font-size: 16px;
+    color: #004080;
+}
+
+.login-text a {
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #00264d;
+    color: white;
+    width: 100%;
+}
+
+footer a {
+    color: #cce7ff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 12px;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+footer img {
+    width: 18px;
+    height: 18px;
+    margin: 0 5px;
+    vertical-align: middle;
+}

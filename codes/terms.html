@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions - SafeTouch</title>
+    <link rel="stylesheet" href="home.css"> <!-- link to your existing CSS file -->
+    <style>
+        /* Basic styling for the header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #004080;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-family: 'Georgia', serif;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #cce7ff;
+        }
+
+        /* Home link in the header */
+        header .home-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        header .home-link img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
+            filter: invert(100%); /* This inverts the logo to white */
+        }
+
+        header .home-link span {
+            font-size: 14px;
+            color: white; /* Ensures the 'Home' text is white */
+        }
+
+        /* Styling for the Terms and Conditions Section */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #e0f7ff, #a5dbff);
+            color: #040b70;
+            overflow-y: auto; /* Enable scrolling */
+            height: 100%; /* Ensure the body fills the viewport height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content {
+            background: linear-gradient(to bottom right, #dbf6ff, #95d0fb);
+            padding: 20px 0;
+            flex-grow: 1; /* Make sure it fills remaining space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .terms-and-conditions {
+            text-align: left;
+            padding: 40px 30px;
+            max-width: 1000px;
+            margin: 30px auto 0; /* Reduced gap between header and content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative; /* To position the overlay */
+            background-color: white; /* White background */
+            background-image: url('sticker.png'); /* Using sticker.png as background */
+            background-size: 20%; /* Fix the background image size */
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Overlay to lighten the background image */
+        .terms-and-conditions::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.3); /* Lighter white overlay */
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .terms-and-conditions h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            z-index: 2; /* Ensure text appears above the overlay */
+            position: relative;
+        }
+
+        /* Styling for h3 tags */
+        .terms-and-conditions h3 {
+            color: #040b70; /* Dark color like the h2 for consistency */
+            z-index: 2;
+            position: relative;
+        }
+
+        .terms-and-conditions p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #333;
+            z-index: 2;
+            position: relative;
+        }
+
+        .terms-and-conditions ul {
+            font-size: 1.1rem;
+            margin-left: 20px;
+            list-style-type: square;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #00264d;
+            color: white;
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+
+        footer a {
+            color: #cce7ff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        footer img {
+            width: 24px;
+            height: 24px;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="home-link" onclick="window.location.href='home.html';">
+            <img src="home.png" alt="Home">
+            <span>Home</span>
+        </div>
+        <h1>SafeTouch</h1>
+        <nav>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign Up</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <section class="main-content">
+        <main class="terms-and-conditions">
+            <h2>Terms and Conditions</h2>
+            <p>Welcome to SafeTouch! By accessing or using our website, you agree to comply with the following terms and conditions. Please read them carefully.</p>
+
+            <h3>1. Acceptance of Terms</h3>
+            <p>By using the SafeTouch website, you agree to abide by these terms. If you do not agree to these terms, please do not use our website.</p>
+
+            <h3>2. Use of Website</h3>
+            <p>SafeTouch provides information and resources related to awareness of good touch and bad touch. You are responsible for ensuring that any content or services you use are in accordance with applicable laws.</p>
+
+            <h3>3. User Responsibilities</h3>
+            <p>You agree to use SafeTouch responsibly and not engage in any activity that could damage, disable, or interfere with the website's functionality.</p>
+
+            <h3>4. Privacy and Data Protection</h3>
+            <p>For information about how we collect and use your data, please refer to our <a href="privacy.html">Privacy Policy</a>.</p>
+
+            <h3>5. Modifications to Terms</h3>
+            <p>We reserve the right to update or modify these terms at any time. Any changes will be posted on this page, and the date of the last update will be reflected at the top.</p>
+
+            <h3>6. Limitation of Liability</h3>
+            <p>SafeTouch is not liable for any damages resulting from the use of this website or any linked content. Use the website at your own risk.</p>
+
+            <h3>7. Governing Law</h3>
+            <p>These terms are governed by the laws of the country in which SafeTouch is registered. Any disputes arising under these terms will be subject to the jurisdiction of the courts in that country.</p>
+
+            <h3>8. Contact Us</h3>
+            <p>If you have any questions or concerns about these Terms and Conditions, please reach out to us through the <a href="contact.html">Contact Us</a> page.</p>
+        </main>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms&Conditions</a>
+            <a href="https://www.instagram.com/_safe.touch_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                <img src="instagram.png" alt="Instagram Logo">
+            </a>
+            <a href="https://twitter.com" target="_blank">
+                <img src="twitter.png" alt="Twitter">
+            </a>
+        </div>
+        <p>&copy; 2024 SafeTouch. All rights reserved.</p>
+    </footer>
+</body>
+</html>

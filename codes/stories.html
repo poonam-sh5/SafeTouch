@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeTouch Stories</title>
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #e0f7ff, #a2d9ff);
+            color: #003366;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #004080;
+            color: white;
+            position: relative;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 8px 12px;
+            font-size: 16px;
+            color: #004080;
+            text-decoration: none;
+        }
+
+        .dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            filter: invert(1);
+        }
+
+        .profile-text {
+            font-size: 18px;
+        }
+
+        /* Main Body */
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 20px auto;
+        }
+
+        .section {
+            width: 60%;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .section video {
+            display: none;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: opacity 0.3s;
+        }
+
+        .section:hover video {
+            display: block;
+        }
+
+        .section:hover img {
+            display: none;
+        }
+
+        .tagline {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Back Arrow Button */
+        .back-arrow {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 30px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Video Play Button */
+        .play-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #00264d;
+            color: white;
+        }
+
+        footer a {
+            color: #cce7ff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        footer img {
+            width: 24px;
+            height: 24px;
+            margin: 0 5px;
+        }
+    </style>
+    <script>
+        // Toggle Dropdown Menu
+        function toggleDropdown() {
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Function to play video and show back button to exit fullscreen
+        function playVideo(videoSrc) {
+            // Create the fullscreen video element
+            const videoElement = document.createElement('video');
+            videoElement.src = videoSrc;
+            videoElement.autoplay = true;
+            videoElement.controls = true;
+            videoElement.style.position = 'fixed';
+            videoElement.style.top = '50%';
+            videoElement.style.left = '50%';
+            videoElement.style.transform = 'translate(-50%, -50%)';
+            videoElement.style.zIndex = '1000';
+            videoElement.style.width = '80%';
+            videoElement.style.height = '80%';
+            document.body.appendChild(videoElement);
+
+            // Create the back arrow button
+            const backArrow = document.createElement('button');
+            backArrow.innerHTML = '&larr;'; // Left arrow symbol
+            backArrow.classList.add('back-arrow');
+            backArrow.onclick = function () {
+                document.body.removeChild(videoElement);
+                document.body.removeChild(backArrow);
+            };
+            document.body.appendChild(backArrow);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleDropdown()">
+            ☰
+            <div class="dropdown">
+                <a href="home.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">About Us</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="feedback.html">Feedback</a>
+            </div>
+        </div>
+        <div class="logo">SafeTouch</div>
+        <div class="profile">
+            <span class="profile-text">Profile</span>
+            <img src="profile.png" alt="Profile" onclick="window.location.href='profile.html'">
+        </div>
+    </header>
+
+    <main>
+        <div class="section" onclick="playVideo('video1.mp4')">
+            <p class="tagline">Julie & Bunny</p>
+            <img src="story1.png" alt="Story 1 Placeholder">
+            <video src="video1.mp4" autoplay muted loop></video>
+            <button class="play-button" onclick="playVideo('video1.mp4')">▶</button>
+        </div>
+        <div class="section" onclick="playVideo('video2.mp4')">
+            <p class="tagline">Olive & Ram</p>
+            <img src="story2.png" alt="Story 2 Placeholder">
+            <video src="video2.mp4" autoplay muted loop></video>
+            <button class="play-button" onclick="playVideo('video2.mp4')">▶</button>
+        </div>
+        <div class="section" onclick="playVideo('video3.mp4')">
+            <p class="tagline">A Stranger</p>
+            <img src="story3.png" alt="Story 3 Placeholder">
+            <video src="video3.mp4" autoplay muted loop></video>
+            <button class="play-button" onclick="playVideo('video3.mp4')">▶</button>
+        </div>
+        <div class="section" onclick="playVideo('video4.mp4')">
+            <p class="tagline">GoodTouch Vs BadTouch</p>
+            <img src="story4.png" alt="Story 4 Placeholder">
+            <video src="video4.mp4" autoplay muted loop></video>
+            <button class="play-button" onclick="playVideo('video4.mp4')">▶</button>
+        </div>
+        <div class="section" onclick="playVideo('video5.mp4')">
+            <p class="tagline">Jadine & Rashwan</p>
+            <img src="story5.png" alt="Story 5 Placeholder">
+            <video src="video5.mp4" autoplay muted loop></video>
+            <button class="play-button" onclick="playVideo('video5.mp4')">▶</button>
+        </div>
+        <div class="section" onclick="playVideo('video6.mp4')">
+            <p class="tagline">Clara</p>
+            <img src="story6.png" alt="Story 6 Placeholder">
+            <video src="video6.mp4" autoplay muted loop></video>
+            <button class="play-button" onclick="playVideo('video6.mp4')">▶</button>
+        </div>
+        <div class="section" onclick="playVideo('video7.mp4')">
+            <p class="tagline">My Body Belongs To Me</p>
+            <img src="story7.png" alt="Story 7 Placeholder">
+            <video src="video7.mp4" autoplay muted loop></video>
+            <button class="play-button" onclick="playVideo('video7.mp4')">▶</button>
+        </div>
+    </main>
+
+    <footer>
+        <a href="contact.html">Contact Us</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="instagram.png" alt="Instagram">
+        </a>
+        <a href="https://twitter.com" target="_blank">
+            <img src="twitter.png" alt="Twitter">
+        </a>
+        <p>&copy; 2024 SafeTouch. All rights reserved.</p>
+    </footer>
+</body>
+</html>

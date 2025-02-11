@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - SafeTouch</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <header>
+        <div class="home-link" onclick="window.location.href='home.html';">
+            <img src="home.png" alt="Home">
+            <span>Home</span>
+        </div>
+        <h1>SafeTouch</h1>
+        <nav>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <div class="signup-box">
+        <h2>Create an Account</h2>
+        <form onsubmit="return validateForm()">
+            <input type="email" placeholder="Enter your email" required>
+            <input type="password" placeholder="Create password" required>
+            <span id="password-condition" class="error-message"></span>
+            <input type="password" placeholder="Confirm password" required>
+            <span id="confirm-password-condition" class="error-message"></span>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <button class="google-signup-button">
+            <img src="google.png" alt="Google Logo">
+            <span>Sign up with Google</span>
+        </button>
+
+        <p class="login-text">Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <footer>
+        <div>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms&Conditions</a>
+            <a href="https://www.instagram.com/_safe.touch_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                <img src="instagram.png" alt="Instagram Logo">
+            </a>
+            <a href="https://twitter.com" target="_blank">
+                <img src="twitter.png" alt="Twitter">
+            </a>
+        </div>
+        <p>&copy; 2024 SafeTouch. All rights reserved.</p>
+    </footer>
+    <script src="signup.js"></script>
+</body>
+</html>

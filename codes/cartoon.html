@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeTouch Cartoons</title>
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #e0f7ff, #a2d9ff);
+            color: #003366;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #004080;
+            color: white;
+            position: relative;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 8px 12px;
+            font-size: 16px;
+            color: #004080;
+            text-decoration: none;
+        }
+
+        .dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            filter: invert(1);
+        }
+
+        .profile-text {
+            font-size: 18px;
+        }
+
+        /* Main Body */
+        main {
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .cartoon-image {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .cartoon-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            display: block;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        .modal .controls {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .modal button {
+            background-color: #004080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .modal button:hover {
+            background-color: #0059b3;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #00264d;
+            color: white;
+        }
+
+        footer a {
+            color: #cce7ff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        footer img {
+            width: 24px;
+            height: 24px;
+            margin: 0 5px;
+        }
+    </style>
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Close dropdown when clicking outside
+        window.onclick = function (event) {
+            const dropdown = document.querySelector('.dropdown');
+            if (!event.target.matches('.menu-icon') && dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            }
+        };
+        
+    </script>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleDropdown()">
+            ☰
+            <div class="dropdown">
+                <a href="home.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">About Us</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="feedback.html">Feedback</a>
+            </div>
+        </div>
+        <div class="logo">SafeTouch</div>
+        <div class="profile">
+            <span class="profile-text">Profile</span>
+            <img src="profile.png" alt="Profile" onclick="window.location.href='profile.html'">
+        </div>
+    </header>
+
+    <main>
+        <h2></h2>
+        <div id="cartoons">
+            <div class="cartoon-image" ><img src="1.png" alt="Cartoon Page 1"></div>
+            <div class="cartoon-image" ><img src="3.png" alt="Cartoon Page 3"></div>
+            <div class="cartoon-image" ><img src="4.png" alt="Cartoon Page 4"></div>
+            <div class="cartoon-image" ><img src="5.png" alt="Cartoon Page 5"></div>
+            <div class="cartoon-image" ><img src="7.png" alt="Cartoon Page 7"></div>
+            <div class="cartoon-image" ><img src="6.png" alt="Cartoon Page 6"></div>
+        </div>
+    </main>
+
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">×</span>
+        <img id="modal-image" src="" alt="Cartoon Image">
+        <div class="controls">
+            <button onclick="showPrevious()">Previous</button>
+            <button onclick="showNext()">Next</button>
+        </div>
+    </div>
+
+    <footer>
+        <a href="contact.html">Contact Us</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="https://www.instagram.com/_safe.touch_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+            <img src="instagram.png" alt="Instagram">
+        </a>
+        <a href="https://twitter.com" target="_blank">
+            <img src="twitter.png" alt="Twitter">
+        </a>
+        <p>&copy; 2024 SafeTouch. All rights reserved.</p>
+    </footer>
+</body>
+</html>
